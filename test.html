@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Testing - CivicSense</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f9fafb;
+            color: #111827;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2563eb;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 20px;
+        }
+        
+        .test-section { 
+            margin: 30px 0;
+            padding: 25px;
+            border: 1px solid #d1d5db;
+            background: #ffffff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .test-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 15px;
+            border-left: 4px solid #2563eb;
+            padding-left: 15px;
+        }
+        
+        .test-section p {
+            color: #6b7280;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        input {
+            padding: 12px 16px;
+            margin: 8px;
+            border: 1px solid #d1d5db;
+            background: #ffffff;
+            color: #111827;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            width: 200px;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        button { 
+            padding: 12px 24px;
+            margin: 8px;
+            cursor: pointer;
+            background: #2563eb;
+            color: #ffffff;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        
+        button:hover {
+            background: #1d4ed8;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        button:active {
+            transform: translateY(1px);
+        }
+        
+        .success { 
+            color: #059669;
+            font-weight: 600;
+            background: #ecfdf5;
+            padding: 10px;
+            border: 1px solid #a7f3d0;
+            margin-top: 10px;
+        }
+        
+        .error { 
+            color: #dc2626;
+            font-weight: 600;
+            background: #fef2f2;
+            padding: 10px;
+            border: 1px solid #fca5a5;
+            margin-top: 10px;
+        }
+        
+        .result-container {
+            margin-top: 15px;
+            min-height: 50px;
+        }
+        
+        .result-container h3 {
+            color: #374151;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .result-container p {
+            margin: 5px 0;
+        }
+        
+        .result-container a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .result-container a:hover {
+            text-decoration: underline;
+        }
+        
+        .credential-note {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 13px;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CivicSense System Testing Console</h1>
+        
+        <div class="test-section">
+            <h2>User Authentication Testing</h2>
+            <p>Test user login functionality with sample credentials or custom input:</p>
+            <div class="credential-note">
+                <strong>Sample Credentials:</strong> john@example.com / 123456
+            </div>
+            <input type="email" id="testEmail" placeholder="Email Address" value="john@example.com">
+            <input type="password" id="testPassword" placeholder="Password" value="123456">
+            <button onclick="testUserLogin()">Execute User Login Test</button>
+            <button onclick="testUserLogout()">Execute User Logout Test</button>
+            <div id="userResult" class="result-container"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Administrator Authentication Testing</h2>
+            <p>Test administrative access with default system credentials:</p>
+            <div class="credential-note">
+                <strong>Default Admin Credentials:</strong> admin / admin
+            </div>
+            <input type="text" id="adminUser" placeholder="Username" value="admin">
+            <input type="password" id="adminPass" placeholder="Password" value="admin">
+            <button onclick="testAdminLogin()">Execute Admin Login Test</button>
+            <button onclick="testAdminLogout()">Execute Admin Logout Test</button>
+            <div id="adminResult" class="result-container"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Navigation System Testing</h2>
+            <p>Validate all application navigation routes and page accessibility:</p>
+            <button onclick="testNavigation()">Execute Navigation Test</button>
+            <div id="navResult" class="result-container"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Local Storage Testing</h2>
+            <p>Test browser storage functionality and session persistence:</p>
+            <button onclick="testStorage()">Inspect Storage State</button>
+            <button onclick="clearStorage()">Clear All Storage</button>
+            <div id="storageResult" class="result-container"></div>
+        </div>
+    </div>
+
+    <script>
+        // Test user login
+        function testUserLogin() {
+            const email = document.getElementById('testEmail').value;
+            const password = document.getElementById('testPassword').value;
+            
+            if (email && password) {
+                const userData = {
+                    id: 'user_' + Date.now(),
+                    name: email.split('@')[0],
+                    email: email,
+                    loginTime: new Date().toISOString()
+                };
+                
+                localStorage.setItem('civicUser', JSON.stringify(userData));
+                document.getElementById('userResult').innerHTML = '<span class="success">✅ User login successful! Data: ' + JSON.stringify(userData) + '</span>';
+            } else {
+                document.getElementById('userResult').innerHTML = '<span class="error">❌ Please enter email and password</span>';
+            }
+        }
+        
+        // Test user logout
+        function testUserLogout() {
+            localStorage.removeItem('civicUser');
+            document.getElementById('userResult').innerHTML = '<span class="success">✅ User logged out</span>';
+        }
+        
+        // Test admin login
+        function testAdminLogin() {
+            const username = document.getElementById('adminUser').value;
+            const password = document.getElementById('adminPass').value;
+            
+            if (username === 'admin' && password === 'admin') {
+                const adminData = {
+                    id: 'admin_' + Date.now(),
+                    username: username,
+                    department: 'general',
+                    loginTime: new Date().toISOString()
+                };
+                
+                localStorage.setItem('civicAdmin', JSON.stringify(adminData));
+                document.getElementById('adminResult').innerHTML = '<span class="success">✅ Admin login successful! Data: ' + JSON.stringify(adminData) + '</span>';
+            } else {
+                document.getElementById('adminResult').innerHTML = '<span class="error">❌ Invalid admin credentials. Use admin/admin</span>';
+            }
+        }
+        
+        // Test admin logout
+        function testAdminLogout() {
+            localStorage.removeItem('civicAdmin');
+            document.getElementById('adminResult').innerHTML = '<span class="success">✅ Admin logged out</span>';
+        }
+        
+        // Test navigation
+        function testNavigation() {
+            let result = '<h3>Navigation Links Test:</h3>';
+            const pages = ['index.html', 'login.html', 'admin-login.html', 'about-us.html', 'report.html', 'my-reports.html'];
+            
+            pages.forEach(page => {
+                result += `<p><a href="${page}" target="_blank">${page}</a> - Click to test</p>`;
+            });
+            
+            document.getElementById('navResult').innerHTML = result;
+        }
+        
+        // Test storage
+        function testStorage() {
+            const userData = localStorage.getItem('civicUser');
+            const adminData = localStorage.getItem('civicAdmin');
+            
+            let result = '<h3>Current Storage:</h3>';
+            result += '<p><strong>User Data:</strong> ' + (userData || 'None') + '</p>';
+            result += '<p><strong>Admin Data:</strong> ' + (adminData || 'None') + '</p>';
+            
+            document.getElementById('storageResult').innerHTML = result;
+        }
+        
+        // Clear storage
+        function clearStorage() {
+            localStorage.clear();
+            document.getElementById('storageResult').innerHTML = '<span class="success">✅ All storage cleared</span>';
+        }
+        
+        // Auto-test storage on load
+        window.onload = function() {
+            testStorage();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - FixMyCity</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h2>🏛️ FixMyCity</h2>
+                </div>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="login.html" id="userLoginLink">User Login</a></li>
+                        <li><a href="admin-login.html" class="admin-link">Admin</a></li>
+                        <li><a href="about-us.html" class="active">About Us</a></li>
+                    </ul>
+                    <ul class="nav-links user-menu" id="userMenu" style="display: none;">
+                        <li><a href="report.html">Report Issue</a></li>
+                        <li><a href="my-reports.html">My Reports</a></li>
+                        <li><a href="#" onclick="userLogout()" class="logout-link">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <div class="container">
+                <h1>About FixMyCity</h1>
+                <p class="hero-subtitle">Professional-grade civic issue management platform designed for modern municipal operations and community engagement.</p>
+            </div>
+        </section>
+
+        <section class="about-content">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3>🏛️ Mission Statement</h3>
+                        <p>To establish a comprehensive digital infrastructure that connects municipal governance with citizen engagement.</p>
+                        <p>Enabling efficient resolution of civic issues through streamlined reporting and transparent accountability systems.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <h3>👥 Community Partnership</h3>
+                        <p>Our platform facilitates direct communication channels between citizens and municipal departments.</p>
+                        <p>Ensuring every community voice contributes to evidence-based infrastructure improvements and public service enhancements.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <h3>🔧 Operational Excellence</h3>
+                        <p>Citizens submit detailed issue reports with geolocation data and supporting documentation.</p>
+                        <p>Municipal departments receive automated workflow assignments with priority classification and real-time status tracking.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <h3>📊 Full Transparency</h3>
+                        <p>Complete audit trail visibility from initial submission through final resolution.</p>
+                        <p>Automated progress notifications, performance metrics, and comprehensive reporting dashboards for stakeholder accountability.</p>
+                    </div>
+                </div>
+
+                <div class="features-section">
+                    <h2>Platform Capabilities</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <span class="feature-icon">📱</span>
+                            <h4>Advanced Reporting Interface</h4>
+                            <p>Multi-media submission system with geospatial mapping, priority classification, and automated categorization algorithms</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-icon">📍</span>
+                            <h4>Geospatial Intelligence</h4>
+                            <p>Precision location services with GIS integration, territory mapping, and automated department routing capabilities</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-icon">📈</span>
+                            <h4>Real-Time Analytics</h4>
+                            <p>Live status monitoring, automated milestone tracking, and predictive resolution timeframe calculations with stakeholder notifications</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-icon">🏢</span>
+                            <h4>Enterprise Workflow Management</h4>
+                            <p>Automated assignment protocols, department performance metrics, and integrated task management with escalation procedures</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-icon">📊</span>
+                            <h4>Business Intelligence Dashboard</h4>
+                            <p>Comprehensive analytics suite with performance KPIs, trend analysis, resource allocation insights, and executive reporting tools</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-icon">🔒</span>
+                            <h4>Enterprise Security Architecture</h4>
+                            <p>Multi-layer security protocols with data encryption, role-based access controls, and compliance with municipal privacy regulations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-section">
+                    <h2>Platform Performance Metrics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3>2,500+</h3>
+                            <p>Issues Successfully Resolved</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>5,000+</h3>
+                            <p>Registered Citizens</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>25</h3>
+                            <p>Municipal Departments</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>98.5%</h3>
+                            <p>Resolution Satisfaction Rate</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-section">
+                    <h2>Access Our Platform</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h4>Citizen Access Portal</h4>
+                            <p>Submit and track civic issues with our comprehensive reporting system and real-time status monitoring.</p>
+                            <a href="login.html" class="btn-primary">Access Citizen Portal</a>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Municipal Administration Console</h4>
+                            <p>Department administrators can access workflow management tools, analytics dashboards, and performance reporting systems.</p>
+                            <a href="admin-login.html" class="btn-secondary">Administrator Console</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 FixMyCity. Professional civic management solutions for modern communities.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

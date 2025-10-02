@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Reports Dashboard - FixMyCity</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h2>�️ FixMyCity</h2>
+                </div>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="login.html" id="userLoginLink">User Login</a></li>
+                        <li><a href="admin-login.html" class="admin-link">Admin Portal</a></li>
+                        <li><a href="about-us.html">About</a></li>
+                    </ul>
+                    <ul class="nav-links user-menu" id="userMenu" style="display: none;">
+                        <li><a href="report.html">Report Issue</a></li>
+                        <li><a href="my-reports.html" class="active">My Reports</a></li>
+                        <li><a href="#" onclick="userLogout()" class="logout-link">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="reports-header">
+                <h1>My Reports Dashboard</h1>
+                <p style="color: #6b7280; margin-bottom: 32px; font-size: 18px; line-height: 1.6;">Track and manage all your submitted civic issue reports in one comprehensive dashboard. Stay updated on the progress of your community contributions.</p>
+            </div>
+
+            <div class="reports-summary">
+                <div class="summary-card">
+                    <h3 id="totalReports">2</h3>
+                    <p>Total Reports</p>
+                </div>
+                <div class="summary-card">
+                    <h3 id="pendingReports">1</h3>
+                    <p>Under Review</p>
+                </div>
+                <div class="summary-card">
+                    <h3 id="inProgressReports">1</h3>
+                    <p>In Progress</p>
+                </div>
+                <div class="summary-card">
+                    <h3 id="resolvedReports">0</h3>
+                    <p>Resolved</p>
+                </div>
+            </div>
+
+            <div class="reports-filters">
+                <select id="statusFilter">
+                    <option value="all">📋 All Status</option>
+                    <option value="pending">⏳ Under Review</option>
+                    <option value="in-progress">🔄 In Progress</option>
+                    <option value="resolved">✅ Resolved</option>
+                    <option value="closed">🗂️ Closed</option>
+                </select>
+                <select id="categoryFilter">
+                    <option value="all">🏷️ All Categories</option>
+                    <option value="infrastructure">🛣️ Infrastructure</option>
+                    <option value="utilities">💡 Utilities</option>
+                    <option value="sanitation">🗑️ Sanitation</option>
+                    <option value="water">🚰 Water Supply</option>
+                    <option value="drainage">🌊 Drainage</option>
+                    <option value="transportation">🚦 Transportation</option>
+                    <option value="environment">🌳 Environment</option>
+                    <option value="other">📌 General</option>
+                </select>
+                <input type="date" id="dateFilter" placeholder="📅 Filter by date">
+            </div>
+
+            <div id="myReportsList" class="reports-list">
+                <!-- Enhanced Report Cards -->
+                <div class="report-card">
+                    <div class="report-header">
+                        <h3>🛣️ Infrastructure: Main Street Pothole</h3>
+                        <span class="status-badge pending">Under Review</span>
+                    </div>
+                    <div class="report-details">
+                        <p><strong>📋 Report ID:</strong> CR001</p>
+                        <p><strong>📍 Location:</strong> Main Street, near City Hall</p>
+                        <p><strong>🏷️ Category:</strong> Infrastructure - Road Maintenance</p>
+                        <p><strong>⚡ Priority:</strong> Medium</p>
+                        <p><strong>📅 Submitted:</strong> September 10, 2025</p>
+                        <p><strong>🔄 Last Updated:</strong> September 12, 2025</p>
+                    </div>
+                    <div class="report-description">
+                        <p><strong>Description:</strong> Large pothole causing vehicle damage. Approximately 2 feet wide and 6 inches deep, located in the right traffic lane. Multiple vehicles have reported tire damage, making this a safety hazard for daily commuters.</p>
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-header">
+                        <h3>💡 Utilities: Oak Avenue Streetlight</h3>
+                        <span class="status-badge in-progress">In Progress</span>
+                    </div>
+                    <div class="report-details">
+                        <p><strong>📋 Report ID:</strong> CR002</p>
+                        <p><strong>📍 Location:</strong> Oak Avenue, Block 15</p>
+                        <p><strong>🏷️ Category:</strong> Utilities - Public Lighting</p>
+                        <p><strong>⚡ Priority:</strong> High</p>
+                        <p><strong>📅 Submitted:</strong> September 8, 2025</p>
+                        <p><strong>🔄 Last Updated:</strong> September 14, 2025</p>
+                    </div>
+                    <div class="report-description">
+                        <p><strong>Description:</strong> Streetlight malfunctioning with intermittent flickering. Complete failure for past 3 days creating safety concerns for pedestrians and evening joggers in the area.</p>
+                    </div>
+                    <div class="report-progress">
+                        <p><strong>🔄 Status Update:</strong> Electrical repair crew assigned. Maintenance work scheduled for September 16, 2025. Replacement parts have been ordered and are expected to arrive by September 15. Temporary lighting has been installed for safety.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="no-reports" id="noReportsMessage" style="display: none;">
+                <div style="font-size: 48px; margin-bottom: 24px;">📋</div>
+                <h3>No Reports Submitted Yet</h3>
+                <p>You haven't submitted any civic issue reports yet. Start by reporting your first issue to help improve your community and make a difference in your neighborhood.</p>
+                <a href="report.html" class="btn-primary">Submit First Report</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FixMyCity. Empowering communities to report and resolve city issues.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

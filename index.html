@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixMyCity - Report & Track City Issues</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <a href="index.html" class="brand-link" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+                        <span class="brand-text" style="font-size:26px;font-weight:800;color:#ffffff;letter-spacing:-0.5px;display:flex;align-items:center;gap:6px;">🏛️ <span>FixMyCity</span></span>
+                    </a>
+                </div>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="login.html" id="userLoginLink">User Login</a></li>
+                        <li><a href="admin-login.html" class="admin-link">Admin Portal</a></li>
+                        <li><a href="about-us.html">About</a></li>
+                    </ul>
+                    <ul class="nav-links user-menu" id="userMenu" style="display: none;">
+                        <li><a href="report.html">Report Issue</a></li>
+                        <li><a href="my-reports.html">My Reports</a></li>
+                        <li><a href="#" onclick="userLogout()" class="logout-link">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">🏙️ Making Cities Better, Together</div>
+                    <h1>Report. Track. <span class="highlight">Fix.</span></h1>
+                    <p>Your voice matters. Report city issues instantly, track progress in real-time, and watch your community transform. From potholes to broken streetlights - we make it easy to fix what matters.</p>
+                    <div class="hero-actions">
+                        <a href="report.html" class="btn-primary">
+                            <span>📍</span>
+                            Report an Issue
+                        </a>
+                        <a href="#how-it-works" class="btn-secondary">
+                            <span>🎯</span>
+                            How It Works
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">1,247</div>
+                            <div class="stat-label">Issues Resolved</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">48hr</div>
+                            <div class="stat-label">Avg Response Time</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">94%</div>
+                            <div class="stat-label">Satisfaction Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Simple. Fast. Effective.</h2>
+                    <p>Three easy steps to make your city better</p>
+                </div>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">📸</div>
+                        <h3>Spot & Report</h3>
+                        <p>See a problem? Snap a photo, add location details, and submit your report in under 2 minutes.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">⚡</div>
+                        <h3>We Route & Process</h3>
+                        <p>Your report automatically goes to the right department with priority classification and tracking ID.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">✅</div>
+                        <h3>Track & Celebrate</h3>
+                        <p>Get real-time updates on progress, from "Under Review" to "Fixed!" Watch your community improve.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="recent-issues">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Real Impact, Real Progress</h2>
+                    <p>See what your neighbors are fixing in your community</p>
+                </div>
+                <div id="issues-list" class="issues-grid">
+                    <!-- Issues will be loaded here via JavaScript -->
+                    <div class="issue-card">
+                        <div class="issue-status status-progress">In Progress</div>
+                        <h4>🕳️ Main Street Pothole</h4>
+                        <p class="issue-description">Large pothole causing traffic hazard near intersection</p>
+                        <div class="issue-meta">
+                            <span class="issue-category">Road Maintenance</span>
+                            <span class="issue-date">2 days ago</span>
+                        </div>
+                    </div>
+                    <div class="issue-card">
+                        <div class="issue-status status-review">Under Review</div>
+                        <h4>💡 Broken Streetlight</h4>
+                        <p class="issue-description">Streetlight out on Oak Avenue, safety concern at night</p>
+                        <div class="issue-meta">
+                            <span class="issue-category">Public Lighting</span>
+                            <span class="issue-date">1 week ago</span>
+                        </div>
+                    </div>
+                    <div class="issue-card">
+                        <div class="issue-status status-resolved">✅ Fixed!</div>
+                        <h4>🗑️ Garbage Collection Issue</h4>
+                        <p class="issue-description">Missed pickup schedule resolved, service restored</p>
+                        <div class="issue-meta">
+                            <span class="issue-category">Waste Management</span>
+                            <span class="issue-date">3 days ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-wrapper">
+                    <a href="my-reports.html" class="btn-outline">View All Reports</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Call-to-Action Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Make a Difference?</h2>
+                    <p>Join thousands of citizens making their communities better, one report at a time.</p>
+                    <a href="login.html" class="btn-primary">Get Started - It's Free</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FixMyCity. Empowering communities to report and resolve city issues.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

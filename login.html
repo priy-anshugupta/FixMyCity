@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication - FixMyCity</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h2 style="display:flex;align-items:center;gap:6px;font-weight:800;letter-spacing:-0.5px;">🏛️ <span>FixMyCity</span></h2>
+                </div>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="login.html" id="userLoginLink" class="active">User Login</a></li>
+                        <li><a href="admin-login.html" class="admin-link">Admin Portal</a></li>
+                        <li><a href="about-us.html">About</a></li>
+                    </ul>
+                    <ul class="nav-links user-menu" id="userMenu" style="display: none;">
+                        <li><a href="report.html">Report Issue</a></li>
+                        <li><a href="my-reports.html">My Reports</a></li>
+                        <li><a href="#" onclick="userLogout()" class="logout-link">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="auth-main">
+        <div class="container">
+            <div class="auth-wrapper">
+                <div class="auth-header">
+                    <h1>Welcome to FixMyCity</h1>
+                </div>
+                
+                <div class="auth-container">
+                    <div class="auth-tabs">
+                        <button class="tab-btn active" onclick="showLogin()">Sign In</button>
+                        <button class="tab-btn" onclick="showRegister()">Create Account</button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <div id="loginForm" class="auth-form active">
+                        <form id="citizenLoginForm">
+                            <div class="form-group">
+                                <label for="loginEmail">Email Address</label>
+                                <input type="email" id="loginEmail" name="loginEmail" required placeholder="Enter your email address">
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Password</label>
+                                <input type="password" id="loginPassword" name="loginPassword" required placeholder="Enter your password">
+                            </div>
+                            <button type="submit" class="btn-primary btn-full">Sign In</button>
+                            <div class="form-links">
+                                <a href="#" onclick="showForgotPassword()">Forgot your password?</a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Register Form -->
+                    <div id="registerForm" class="auth-form">
+                        <form id="citizenRegisterForm">
+                            <div class="form-group">
+                                <label for="regFullName">Full Name</label>
+                                <input type="text" id="regFullName" name="regFullName" required placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="regPhone">Phone Number</label>
+                                <input type="tel" id="regPhone" name="regPhone" required placeholder="Enter your phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="regEmail">Email Address</label>
+                                <input type="email" id="regEmail" name="regEmail" required placeholder="Enter your email address">
+                            </div>
+                            <div class="form-group">
+                                <label for="regAddress">Residential Address (Optional)</label>
+                                <input type="text" id="regAddress" name="regAddress" placeholder="Enter your address">
+                            </div>
+                            <div class="form-group">
+                                <label for="regPassword">Password</label>
+                                <input type="password" id="regPassword" name="regPassword" required placeholder="Create password">
+                            </div>
+                            <div class="form-group">
+                                <label for="regConfirmPassword">Confirm Password</label>
+                                <input type="password" id="regConfirmPassword" name="regConfirmPassword" required placeholder="Confirm password">
+                            </div>
+                            <button type="submit" class="btn-primary btn-full">Create Account</button>
+                        </form>
+                    </div>
+
+                    <!-- Forgot Password Form -->
+                    <div id="forgotPasswordForm" class="auth-form">
+                        <div class="forgot-header">
+                            <h3>Reset Password</h3>
+                            <p>Enter your email address and we'll send you instructions to reset your password</p>
+                        </div>
+                        <form id="passwordResetForm">
+                            <div class="form-group">
+                                <label for="resetEmail">Email Address</label>
+                                <input type="email" id="resetEmail" name="resetEmail" required placeholder="Enter your registered email">
+                            </div>
+                            <button type="submit" class="btn-primary btn-full">Send Reset Instructions</button>
+                            <div class="form-links">
+                                <a href="#" onclick="showLogin()">← Back to Sign In</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FixMyCity. Empowering communities to report and resolve city issues.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

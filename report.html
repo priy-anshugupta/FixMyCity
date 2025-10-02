@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Issue Report - FixMyCity</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h2>�️ FixMyCity</h2>
+                </div>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="login.html" id="userLoginLink">User Login</a></li>
+                        <li><a href="admin-login.html" class="admin-link">Admin Portal</a></li>
+                        <li><a href="about-us.html">About</a></li>
+                    </ul>
+                    <ul class="nav-links user-menu" id="userMenu" style="display: none;">
+                        <li><a href="report.html" class="active">Report Issue</a></li>
+                        <li><a href="my-reports.html">My Reports</a></li>
+                        <li><a href="#" onclick="userLogout()" class="logout-link">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="form-container">
+                <h1>Submit Civic Issue Report</h1>
+                <p style="text-align: center; color: #6b7280; margin-bottom: 32px;">Complete the form below to submit a detailed civic issue report to the appropriate municipal department.</p>
+                
+                <form id="reportForm" class="report-form">
+                    <div class="form-group">
+                        <label for="reporterName">Reporter Name *</label>
+                        <input type="text" id="reporterName" name="reporterName" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactEmail">Contact Email *</label>
+                        <input type="email" id="contactEmail" name="contactEmail" required placeholder="Enter your email address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactPhone">Contact Phone</label>
+                        <input type="tel" id="contactPhone" name="contactPhone" placeholder="Enter your phone number (optional)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueCategory">Issue Category *</label>
+                        <select id="issueCategory" name="issueCategory" required>
+                            <option value="">Select Issue Category</option>
+                            <option value="POTHOLE">Infrastructure - Road Potholes</option>
+                            <option value="STREETLIGHT">Utilities - Streetlight Issues</option>
+                            <option value="GARBAGE">Sanitation - Garbage Collection</option>
+                            <option value="WATER">Utilities - Water Supply</option>
+                            <option value="DRAINAGE">Infrastructure - Drainage/Sewage</option>
+                            <option value="TRAFFIC">Transportation - Traffic Issues</option>
+                            <option value="PARK">Environment - Park Maintenance</option>
+                            <option value="OTHER">General - Other Civic Issues</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueLocation">Precise Location *</label>
+                        <input type="text" id="issueLocation" name="issueLocation" placeholder="Enter specific address, intersection, or landmark" required>
+                        <button type="button" id="getCurrentLocation" class="btn-secondary" style="margin-top: 8px;">📍 Use Current GPS Location</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueDescription">Detailed Description *</label>
+                        <textarea id="issueDescription" name="issueDescription" rows="5" placeholder="Provide a comprehensive description of the civic issue, including any relevant details that would help with assessment and resolution..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issuePhoto">Supporting Documentation</label>
+                        <input type="file" id="issuePhoto" name="issuePhoto" accept="image/jpeg,image/jpg,image/png">
+                        <small style="color: #6b7280; display: block; margin-top: 4px;">Upload photo evidence (JPG, PNG format, max 5MB)</small>
+                        <div id="photoPreview" class="photo-preview"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="urgencyLevel">Priority Classification</label>
+                        <select id="urgencyLevel" name="urgencyLevel">
+                            <option value="LOW">Low Priority - Routine maintenance</option>
+                            <option value="MEDIUM" selected>Medium Priority - Standard processing</option>
+                            <option value="HIGH">High Priority - Expedited attention required</option>
+                            <option value="EMERGENCY">Emergency - Immediate safety concern</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Submit Issue Report</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FixMyCity. Empowering communities to report and resolve city issues.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
